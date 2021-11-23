@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const table = document.getElementById('players_table')
     const triplets_div = document.getElementById('available_triplets')
+    const used_triplets_div = document.getElementById('used_triplets')
 
     let players = []
     let deactivated_players = []
@@ -43,11 +44,15 @@ document.addEventListener('DOMContentLoaded', function(){
         if (typeof cookie_games !==  'undefined' && cookie_games !==  'undefined') {
             for (let g of cookie_games.split("|||")) {
                 let game = g.split(",")
-                games.push(game)
+                if (game.length > 2){
+                    games.push(game)
+                }
+
             }
 
         }
 
+        console.log("games ", games)
 
         //deactivated_players = ["B", "C"]
 //
@@ -197,8 +202,6 @@ document.addEventListener('DOMContentLoaded', function(){
                         ) {
                             available_triplets.push([player_1, player_2, player_3])
                         }
-
-
                     }
                 }
             }
@@ -206,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-        let triplet_html = ''
+        let triplet_html = '<div id="btn_delete_last">Undo</div>'
         for (let triplet of available_triplets) {
             triplet_html += `<div class="triplet" data-triplet='${triplet.toString()}'>${triplet.toString()}</div>`
         }
@@ -224,6 +227,26 @@ document.addEventListener('DOMContentLoaded', function(){
             setCookie(cookie_games_name, '')
             start()
         })
+        document.getElementById('btn_delete_last').addEventListener('click', () => {
+
+            if (games.length > 0) {
+                games.pop()
+                let games_string = ''
+                for (let game of games) {
+                    games_string += game.toString() + '|||'
+                }
+                setCookie(cookie_games_name, games_string)
+                start()
+            }
+        })
+    }
+    function setUsedTriplets(){
+
+        let triplet_html = ''
+        for (let game of games) {
+            triplet_html += `<div class="triplet">${game.toString()}</div>`
+        }
+        used_triplets_div.innerHTML = triplet_html
     }
 
 
@@ -239,8 +262,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         setCookie(cookie_games_name, games_string)
         start()
-
-
     }
 
 
@@ -270,6 +291,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     })
 
+
+
     start()
     function start(){
 
@@ -278,10 +301,10 @@ document.addEventListener('DOMContentLoaded', function(){
         drawGames()
 
         getPossibleTriplets()
+        setUsedTriplets()
 
         document.getElementById('load_container').style.display = 'none'
         document.getElementById('main_page').style.display = 'block'
-
     }
 
 
@@ -307,18 +330,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
 
-
-    function showNotify(text){
-        var notification = alertify.notify(text, 'success', 5, function(){  console.log('dismissed'); });
-
-    }
-
-    function showAlert(text){
-
-        document.getElementById(`popup_background_notify`).style.display = 'flex'
-        document.getElementById(`div_background_notify`).style.display = 'flex'
-        document.getElementById('notification_text').innerText = text
-    }
 
 
 

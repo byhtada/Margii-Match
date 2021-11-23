@@ -69,7 +69,7 @@ body {
 
 
 #available_triplets {display: flex; flex-flow: wrap;}
-#available_triplets .triplet, #btn_delete_games {
+#available_triplets .triplet, #btn_delete_games, #btn_delete_last {
     margin-right: 15px;
     margin-bottom: 15px;
     background-color: #191C24;
@@ -79,7 +79,22 @@ body {
     cursor: pointer;
 }
 
-#available_triplets .triplet:hover, #btn_delete_games:hover {border: 1px solid #ff8443;}
+#available_triplets .triplet:hover, #btn_delete_games:hover, #btn_delete_last:hover {border: 1px solid #ff8443;}
+
+
+
+
+#used_triplets {display: flex; flex-flow: wrap;}
+#used_triplets .triplet {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #ff8443;
+    color: black;
+    border-radius: 4px;
+    padding: 5px 5px;
+    border: 1px solid #3e4456;
+    cursor: pointer;
+}
 
 
 
