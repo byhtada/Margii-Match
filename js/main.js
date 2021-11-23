@@ -218,6 +218,10 @@ document.addEventListener('DOMContentLoaded', function(){
         triplets_div.innerHTML = triplet_html
 
 
+        document.getElementById('games_played')   .innerText = `Сыграно: ${games.length}`
+        document.getElementById('games_available').innerText = `Доступно: ${available_triplets.length}`
+
+
         Array.from(triplets_div.getElementsByClassName('triplet')).forEach(function(triplet) {
             triplet.addEventListener('click', clickTriplet);
         })
@@ -302,6 +306,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
         getPossibleTriplets()
         setUsedTriplets()
+
+
 
         document.getElementById('load_container').style.display = 'none'
         document.getElementById('main_page').style.display = 'block'
