@@ -1,0 +1,9 @@
+{
+  "short_name": "SPG",
+  "name": "SPG",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+
+  "start_url": "/index.html"
+}
