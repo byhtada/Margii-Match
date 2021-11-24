@@ -268,6 +268,16 @@ document.addEventListener('DOMContentLoaded', function(){
         start()
     }
 
+    document.getElementById('btn_all_off').addEventListener('click', () => {
+        deactivated_players = [...players]
+        setCookie(cookie_deactivated_players_name, deactivated_players.join(","))
+        start()
+    })
+    document.getElementById('btn_all_on').addEventListener('click', () => {
+        deactivated_players = []
+        setCookie(cookie_deactivated_players_name, deactivated_players.join(","))
+        start()
+    })
 
     document.getElementById('btn_add_player').addEventListener('click', () => {
         let player = document.getElementById('input_player_name').value
@@ -279,7 +289,14 @@ document.addEventListener('DOMContentLoaded', function(){
             alert("Такой игрок уже есть")
             return
         }
-        players.push(player)
+
+        if (player.includes(",")) {
+            players = player.split(",")
+            setCookie(cookie_games_name, '')
+        } else {
+            players.push(player)
+        }
+
         players = players.sort()
 
         console.log("players ", players)
