@@ -18,8 +18,11 @@ body {
 }
 .mobile_wrapper {
     max-width: 480px;
+    min-width: 480px;
     margin: 0 auto;
+    padding: 10px 30px;
 }
+
 
 
 .action-btn {
@@ -68,8 +71,6 @@ body {
 
 
 
-
-#main_page {padding: 50px; }
 
 .input_name {margin: 15px 10px 5px;}
 .text_input_style  {
