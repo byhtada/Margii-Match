@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>FishAndChips</title>
+    <title>Margii Match</title>
     <meta name="description" content="">
+    <meta name="viewport" content="width=480"  />
 
-    <meta name="viewport" content="width=1280"  />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 
     <script src="js/jquery-3.2.1.js"></script>
@@ -19,7 +20,7 @@
 
     <script  type="module" src="js/main.js?v2.25"></script>
     <!-- <link rel="stylesheet" type="text/css" href="fonts/spg_client-v1.0/style.css"> -->
-    <link rel="stylesheet" type="text/css" href="css/main2.css?v2.25">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v2.25">
 
     <link rel="stylesheet" type="text/css" href='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css'>
     <script  type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" defer></script>
@@ -50,43 +51,325 @@
 <div id="main_page">
 
 
+    <div id="div_create_margii" class="mobile_wrapper">
 
-    <div id="players_table"></div>
-    <br>
-
-    <div style="display: flex; width: 400px; font-size: 22px;">
-        <div    style="flex: 1">
-            <button class="action-btn" id="btn_all_off">Выкл</button>
-            <button class="action-btn" id="btn_all_on">Вкл</button>
+        <div id="create_progress" class="progress" >
+            <div id="create_progress_val"  class="progress-bar progress-bar-orange " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                <span class="sr-only"></span>
+            </div>
         </div>
-        <div id="games_played"    style="flex: 1">Сыграно игр: 0</div>
-        <div id="games_available" style="flex: 1">Доступно игр: 0</div>
+
+
+        <div id="div_step_1" class="pages_create">
+
+            <div   id="name_mother_label" class="input_name">Ваше мирское имя</div>
+            <input id="name_mother_value" type="text" class="text_input_style"/>
+
+            <div   id="name_margii_label"  class="input_name">Духовное имя</div>
+            <input id="name_margii_value" type="text" class="text_input_style"/>
+
+            <div   id="birth_date_label" class="input_name">Дата рождения</div>
+            <input id="birth_date_value" type="date" class="text_input_style"/>
+
+            <div   id="birth_time_label" class="input_name">Время рождения</div>
+            <input id="birth_time_value" type="time" class="text_input_style"/>
+
+            <div   id="zodiac_label" class="input_name">Знак зодиака</div>
+            <input id="zodiac_value" type="text" class="text_input_style"/>
+
+            <div   id="human_design_label" class="input_name">Human design</div>
+            <input id="human_design_value" type="text" class="text_input_style"/>
+
+            <div class="btn_container">
+                <button class="action-btn btn_next"       data-step="1">Дальше</button>
+            </div>
+
+        </div>
+
+
+        <div id="div_step_2" class="pages_create">
+
+            <div   id="nationality_label" class="input_name">Национальность</div>
+            <input id="nationality_value" type="text" class="text_input_style"/>
+
+            <div   id="height_label" class="input_name">Ваш рост</div>
+            <input id="height_value" type="text" class="text_input_style"/>
+
+            <div   id="hair_color_label" class="input_name">Цвет волос</div>
+            <input id="hair_color_value" type="text" class="text_input_style"/>
+
+            <div   id="eyes_color_label" class="input_name">Цвет глаз</div>
+            <input id="eyes_color_value" type="text" class="text_input_style"/>
+
+
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="2">Назад</button>
+                <button class="action-btn btn_next"       data-step="2">Дальше</button>
+            </div>
+        </div>
+
+
+
+
+        <div id="div_step_3" class="pages_create">
+
+            <div   id="live_place_label" class="input_name">Где вы живете? (страна, город/ и т.д.)</div>
+            <input id="live_place_value" type="text" class="text_input_style"/>
+
+            <div   id="change_live_place_label" class="input_name">Вы готовы сменить место жительства?</div>
+            <div     data-btns="english_available" class="btns_select_container">
+                <button data-value="1" class="change_live_place_value btn_select action-btn">Да</button>
+                <button data-value="0" class="change_live_place_value btn_select action-btn">Нет</button>
+            </div>
+
+            <div   id="job_label" class="input_name">Ваш род занятий</div>
+            <input id="job_value" type="text" class="text_input_style"/>
+
+            <div   id="job_change_label" class="input_name">Вы готовы сменить место работы?</div>
+            <div     data-btns="english_available" class="btns_select_container">
+                <button data-value="1" class="job_change_value btn_select action-btn">Да</button>
+                <button data-value="0" class="job_change_value btn_select action-btn">Нет</button>
+            </div>
+
+
+            <div   id="selfchanges_label" class="input_name">Как вы становитесь лучше?</div>
+            <input id="selfchanges_value" type="text" class="text_input_style"/>
+
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="3">Назад</button>
+                <button class="action-btn btn_next"       data-step="3">Дальше</button>
+            </div>
+        </div>
+
+
+
+
+        <div id="div_step_4" class="pages_create">
+
+            <div      id="expectations_label" class="input_name">В 5-6 словах опишите, что вы хотите от отношений</div>
+            <textarea id="expectations_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="hobby_label" class="input_name">Интересы и хобби</div>
+            <textarea id="hobby_value"  rows="3" class="textarea_style"></textarea>
+
+
+            <div      id="about_self_label" class="input_name">Напиши о себе подробнее</div>
+            <textarea id="about_self_value"  rows="6" class="textarea_style"></textarea>
+
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="4">Назад</button>
+                <button class="action-btn btn_next"       data-step="4">Дальше</button>
+            </div>
+        </div>
+
+
+        <div id="div_step_5" class="pages_create">
+
+            <div      id="family_effect_label" class="input_name">Как ваша семья будет влиять на отношения?</div>
+            <textarea id="family_effect_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="friends_effect_label" class="input_name">Как ваши друзья будут влиять на отношения?</div>
+            <textarea id="friends_effect_value"  rows="3" class="textarea_style"></textarea>
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="5">Назад</button>
+                <button class="action-btn btn_next"       data-step="5">Дальше</button>
+            </div>
+        </div>
+
+
+
+        <div id="div_step_6" class="pages_create">
+
+            <div      id="childrens_present_label" class="input_name">Сколько у вас детей? Сколько им лет?</div>
+            <textarea id="childrens_present_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="childrens_want_label" class="input_name">Сколько вы хотите детей?</div>
+            <textarea id="childrens_want_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="childrens_partner_label" class="input_name">Вас устраивает, что ваш партнер будет иметь детей?</div>
+            <div     data-btns="childrens_partner_value" class="btns_select_container">
+                <button data-value="1" class="childrens_partner_value btn_select action-btn">Да</button>
+                <button data-value="0" class="childrens_partner_value btn_select action-btn">Нет</button>
+            </div>
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="6">Назад</button>
+                <button class="action-btn btn_next"       data-step="6">Дальше</button>
+            </div>
+        </div>
+
+
+
+        <div id="div_step_7" class="pages_create">
+            <div      id="sadness_label" class="input_name">Как вы справляетесь с грустью?</div>
+            <textarea id="sadness_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="worries_self_label" class="input_name">Что вас беспокоит в себе?</div>
+            <textarea id="worries_self_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="worries_other_label" class="input_name">Что вас беспокоит в других?</div>
+            <textarea id="worries_other_value"  rows="3" class="textarea_style"></textarea>
+
+            <div      id="worries_world_label" class="input_name">Что вас беспокоит в мире?</div>
+            <textarea id="worries_world_value"  rows="3" class="textarea_style"></textarea>
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="7">Назад</button>
+                <button class="action-btn btn_next"       data-step="7">Дальше</button>
+            </div>
+        </div>
+
+
+
+        <div id="div_step_8" class="pages_create">
+
+            <div      id="social_preferences_label" class="input_name">Социальные предпочтения в %<br>(хочу быть один/в небольшой компании/в большой компании)</div>
+            <div    class="btns_select_container">
+                <input id="social_preferences_value_1" type="number" min="0" class="text_input_style" />
+                <input id="social_preferences_value_2" type="number" min="0" class="text_input_style" />
+                <input id="social_preferences_value_3" type="number" min="0" class="text_input_style" />
+
+            </div>
+
+
+            <div   id="discuss_topic_label" class="input_name">Какие ваши любимые ТРИ темы для обсуждения</div>
+            <input id="discuss_topic_value_1" type="text" class="text_input_style" placeholder="Topic 1" />
+            <input id="discuss_topic_value_2" type="text" class="text_input_style" placeholder="Topic 2" />
+            <input id="discuss_topic_value_3" type="text" class="text_input_style" placeholder="Topic 3" />
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="8">Назад</button>
+                <button class="action-btn btn_next"       data-step="8">Дальше</button>
+            </div>
+        </div>
+
+
+
+
+        <div id="div_step_9" class="pages_create">
+
+            <div id="interest_area_label" class="input_name">Расставьте сферы интересов в порядке приоритета </div>
+
+            <div class="btns_by_order selected" >
+                <div id="interest_area_result"></div>
+            </div>
+
+            <br>
+            <br>
+            <div class="btns_by_order">
+                <button data-value="family"        class="interest_area action-btn white">Семья</button>
+                <button data-value="spirituality"  class="interest_area action-btn white">Духовность</button>
+                <button data-value="sport"         class="interest_area action-btn white">Спорт</button>
+                <button data-value="nature"        class="interest_area action-btn white">Природа</button>
+                <button data-value="creativity"    class="interest_area action-btn white">Творчество</button>
+                <button data-value="health"        class="interest_area action-btn white">Здоровье</button>
+                <button data-value="education"     class="interest_area action-btn white">Образование</button>
+                <button data-value="relationships" class="interest_area action-btn white">Отношения</button>
+
+            </div>
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="9">Назад</button>
+                <button id="btn_interest_again" class="action-btn white">Обнулить</button>
+                <button class="action-btn btn_next"       data-step="9">Дальше</button>
+            </div>
+
+        </div>
+
+
+        <div id="div_step_10" class="pages_create">
+
+            <div id="love_lang_label" class="input_name">Есть 5 способов того, как люди могут чувствовать себя любимыми. Расставьте в порядке приоритета </div>
+
+            <div class="btns_by_order selected" >
+                <div id="love_lang_result"></div>
+            </div>
+
+            <br>
+            <br>
+            <div class="btns_by_order">
+                <button data-value="time"  class="love_lang action-btn white">Время вместе</button>
+                <button data-value="gifts" class="love_lang action-btn white">Подарки</button>
+                <button data-value="help"  class="love_lang action-btn white">Помощь от партнера</button>
+                <button data-value="words" class="love_lang action-btn white">Комплименты</button>
+                <button data-value="touch" class="love_lang action-btn white">Прикосновения</button>
+            </div>
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="10">Назад</button>
+                <button id="btn_love_lang_again" class="action-btn white">Обнулить</button>
+                <button class="action-btn btn_next"       data-step="10">Дальше</button>
+            </div>
+
+        </div>
+
+
+
+        <div id="div_step_11" class="pages_create">
+
+            <div   id="social_you_label" class="input_name">Насколько вы социальны? (1-10)</div>
+            <input id="social_you_value" type="number" min="0" max="10" class="text_input_style"/>
+
+            <div   id="social_partner_label" class="input_name">Насколько социален ваш партнер? (1-10)</div>
+            <input id="social_partner_value" type="number" min="0" max="10" class="text_input_style"/>
+
+            <div   id="emotional_you_label" class="input_name">Насколько вы эмоциональны? (1-10)</div>
+            <input id="emotional_you_value" type="number" min="0" max="10" class="text_input_style"/>
+
+            <div   id="emotional_partner_label" class="input_name">Насколько эмоционален ваш партнер? (1-10)</div>
+            <input id="emotional_partner_value" type="number" min="0" max="10" class="text_input_style"/>
+
+            <div   id="rational_you_label" class="input_name">Насколько вы рациональны? (1-10)</div>
+            <input id="rational_you_value" type="number" min="0" max="10" class="text_input_style"/>
+
+            <div   id="rational_partner_label" class="input_name">Насколько рационален ваш партнер? (1-10)</div>
+            <input id="rational_partner_value" type="number" min="0" max="10" class="text_input_style"/>
+
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="11">Назад</button>
+                <button class="action-btn btn_next"       data-step="11">Дальше</button>
+            </div>
+        </div>
+
+        <div id="div_step_12" class="pages_create">
+
+            <div   id="photo_label" class="input_name">Ваше фото</div>
+            <input id="photo_value" type="file" class="text_input_style"/>
+
+            <div   id="social_networks_label" class="input_name">Ссылки на соц.сети</div>
+            <input id="social_networks_value" type="text" class="text_input_style"/>
+
+            <div   id="telegram_label" class="input_name">Телеграм аккаунт</div>
+            <input id="telegram_value" type="text" class="text_input_style"/>
+
+            <div   id="english_label" class="input_name">Можем ли общаться на английском?</div>
+            <div     data-btns="english_available" class="btns_select_container">
+                <button data-value="1" class="english_value btn_select action-btn">Да</button>
+                <button data-value="0" class="english_value btn_select action-btn">Нет</button>
+            </div>
+
+
+            <div class="btn_container">
+                <button class="action-btn btn_back white" data-step="12">Назад</button>
+                <button class="action-btn btn_next"       data-step="12">Дальше</button>
+            </div>
+        </div>
+
+
+
     </div>
-    <br>
-    <br>
-    <div id="available_triplets"></div>
 
 
-    <br>
-    <br>
-    <br>
-
-    <div>Сыгранные тройки</div>
-    <br>
-    <div id="used_triplets"></div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <input  class="text_input_style" id="input_player_name" type="text" placeholder="Имя игрока"/>
-        <button class="action-btn" id="btn_add_player">Добавить</button>
-    </div>
 </div>
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 </html>

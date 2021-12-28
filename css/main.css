@@ -8,12 +8,136 @@ body {
     background-color: #121419;
     margin:0 auto;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
 
+    justify-content: center;
+    color: white;
+
+    max-width: 480px;
+    min-width: 480px;
+    font-family: 'Open Sans', sans-serif;
+}
+.mobile_wrapper {
+    max-width: 480px;
+    margin: 0 auto;
 }
 
- #main_page {padding: 50px;}
+
+.action-btn {
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #ff8443;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+    padding: 0 10px;
+
+    font-weight: 700;
+    width: auto;
+}
+.action-btn:hover {
+    border: 1px solid #ff8443;
+}
+.action-btn.white { border: 1px solid #6c6c6c;}
+
+
+.pages_create {display: none;}
+.pages_create#div_step_9 {display: block;}
+
+
+
+#create_progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 !important;
+    height: 5px;
+    border-radius: 0;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#FFFFFF),to(#FFFFFF));
+    -webkit-box-shadow: none;
+    box-shadow: none;}
+
+.progress-bar-orange{
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#FF7F5C),to(#FF7F5C));
+}
+
+
+
+
+#main_page {padding: 50px; }
+
+.input_name {margin: 15px 10px 5px;}
+.text_input_style  {
+    font-size: 14px;
+    text-align: left;
+    outline: none;
+    border-radius: 7px;
+    height: 25px;
+    border-color: #6c6c6c;
+    background-color: transparent;
+    margin-left: 1px;
+    margin-right: 1px;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    font-family: 'Jura', sans-serif;
+    resize: vertical;
+    padding: 1px 10px;
+    width: 100%;
+}
+.text_input_style:hover {border-color: #ff8443;}
+
+
+
+.textarea_style  {
+    font-size: 14px;
+    text-align: left;
+    outline: none;
+    border-radius: 7px;
+    border-color: #6c6c6c;
+    background-color: transparent;
+    margin-left: 1px;
+    margin-right: 1px;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    font-family: 'Jura', sans-serif;
+    resize: vertical;
+    padding: 1px 10px;
+    width: 100%;
+}
+.textarea_style:hover {border-color: #ff8443;}
+
+
+
+.btn_container {display: flex;     justify-content: space-between; margin-top: 20px; }
+#div_step_1 .btn_container {justify-content: right;}
+
+
+
+.btns_select_container {display: flex; flex-direction: row;}
+.btn_select {flex: 1; border: 1px solid #6c6c6c;}
+.btn_select.active {
+    background-color: #ff8443;
+    transition-duration: 200ms;
+    /*box-shadow: 0 2px 5px rgba(80,255,248,.5);*/
+    color: #191C24;
+    border: 1px solid #ff8443;}
+
+.btns_select_container:only-child {flex: 1}
+
+.btns_by_order {
+    display: flex;
+    flex-direction: column}
+.btns_by_order.selected .action-btn {border: 1px solid #ff8443}
+
+
+
 
 
 .containers {display: none !important; z-index: 10; height: 100%;}
@@ -103,50 +227,6 @@ body {
 
 
 
-
-.action-btn {
-    height: 32px;
-    line-height: 32px;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    border: 1px solid #ff8443;
-    background-color: transparent;
-    border-radius: 32px;
-    transition: .2s;
-    cursor: pointer;
-    padding: 0 10px;
-
-    font-weight: 700;
-    width: auto;
-}
-.action-btn:hover {
-    background-color: #ff8443;
-    transition-duration: 200ms;
-    /*box-shadow: 0 2px 5px rgba(80,255,248,.5);*/
-    color: #191C24;
-    border: 1px solid #ff8443;
-
-}
-.text_input_style  {
-    font-size: 14px;
-    text-align: center;
-    outline: none;
-    border-radius: 25px;
-    width: 200px;
-    height: 25px;
-    border-color: #6c6c6c;
-    background-color: transparent;
-    margin-left: 1px;
-    margin-right: 1px;
-    color: white;
-    border-width: 1px;
-    border-style: solid;
-    font-family: 'Jura', sans-serif;
-    resize: vertical;
-    padding: 1px 10px;
-}
 
 
 .e-loadholder {
